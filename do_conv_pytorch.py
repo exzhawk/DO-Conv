@@ -115,7 +115,7 @@ class DOConv2d(Module):
         DoW_shape = (self.out_channels, self.in_channels // self.groups, M, N)
         if M * N > 1:
             ######################### Compute DoW #################
-            # (input_channels, D_mul, M * N)
+            # (input_channels, M * N, D_mul)
             D = self.D + self.D_diag
             W = torch.reshape(self.W, (self.out_channels // self.groups, self.in_channels, self.D_mul))
 
